@@ -52,7 +52,7 @@ a{
 }
 
 .TopNavBar>nav>ul>li>a:hover{
-  border-top: 3px solid #E8676B;
+  border-top: 3px solid transparent;
   border-bottom: 3px solid #E8676B;
 
 }
