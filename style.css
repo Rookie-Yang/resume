@@ -10,7 +10,7 @@ a {
 
 * {
   margin: 0;
-  padding:
+  padding:0;
 }
 
 hr {
@@ -104,7 +104,6 @@ hr {
 }
 
 .userCard {
-  border: 1px solid red;
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
@@ -176,10 +175,25 @@ hr {
 
 .userCard>footer.media {
   background: #E8676B;
+  text-align: center;
+}
+
+.userCard>footer.media>a {
+  display: inline-block;
+  width: 40px;
+  line-height: 30px;
+  padding: 5px 0;
+  border-radius: 50%;
+  margin: 16px;
+}
+
+.userCard>footer.media>a:hover {
+  background: #D05C60;
 }
 
 .userCard svg {
   width: 30px;
   height: 30px;
   fill: white;
+  vertical-align: top;
 }
