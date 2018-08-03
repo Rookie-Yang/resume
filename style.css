@@ -233,3 +233,17 @@ box-shadow: 0px 10px 13px 0px rgba(0,0,0,0.2);
   line-height: 1.8;
   font-size: 17px;
 }
+
+section .skills{
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section .skills >h2{
+  text-align: center;
+  color: #3d4451;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 600;
+}
