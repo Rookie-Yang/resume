@@ -366,5 +366,5 @@ section.protflio .works{
 
 section.protflio .works > .big,
 section.protflio .works > .small{
-  position: absolute;
+  position: absolute; 
 }
