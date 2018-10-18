@@ -10,4 +10,14 @@ protflioVallina.onclick = function(){
 
 setTimeout(function(){
   siteWelcome.classList.remove('active')
-},2000)
+},1000)
+
+window.onscroll = function(xxx){
+  if(window.scrollY>20){
+    TopNavBar.classList.add('sticky')
+  }
+  else{
+    TopNavBar.classList.remove('sticky')    
+  }
+  
+}
