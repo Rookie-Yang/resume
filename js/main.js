@@ -8,4 +8,6 @@ protflioVallina.onclick = function(){
   protflioBar.className = 'bar state-3'
 }
 
-siteWelcome.classList.remove('active')
+setTimeout(function(){
+  siteWelcome.classList.remove('active')
+},2000)
