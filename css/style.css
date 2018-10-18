@@ -1,3 +1,4 @@
+.icon {width: 1em;height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
 body {background: #efefef;  margin: 0;}
 a {color: inherit;text-decoration: none;}
 * {margin: 0; padding: 0;}
@@ -5,32 +6,28 @@ hr {height: 0;border: none;border-top: 1px solid #dedede;}
 ul,ol {list-style: none;}
 h1,h2,h3,h4,h5,h6 {font-weight: normal;}
 .clearfix::after {content: "";display: block;clear: both;}
-.TopNavBar {padding: 20px 0px;position: fixed;top: 0;left: 0;width: 100%;transition:all 0.5s;
-color:#ccced1;}
-.TopNavBar.sticky{
-  background:white;
-  padding:10px 0;
-  z-index:1;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25);
-  color:#3d4451;
-  
-}
+.TopNavBar {padding: 20px 0px;position: fixed;top: 0;left: 0;width: 100%;transition:all 0.5s;color:#ccced1;}
+.TopNavBar.sticky{background:white;padding:10px 0;z-index:1;box-shadow: 0 0 10px rgba(0,0,0,0.25);color:#3d4451;}
 .TopNavBar-inner {padding: 0 16px;}
 .TopNavBar a {float: left;}
 .TopNavBar nav {float: right;padding-top: 4px;padding-bottom: 2px;}
 .TopNavBar nav > ul {list-style: none;margin: 0;padding: 0;}
-.TopNavBar nav > ul > li {float: left;margin-left: 17px;margin-right: 17px;}
-.TopNavBar nav > ul > li > a {font-size: 12px;color: inherit;font-weight: bold;border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-top: 5px;padding-bottom: 5px;display: block;}
-.TopNavBar nav > ul > li > a:hover {border-top: 3px solid transparent;border-bottom: 3px solid #e8676b;}
+.TopNavBar nav > ul > li {float: left;margin-left: 17px;margin-right: 17px;position: relative;}
+.TopNavBar nav > ul > li > a {font-size: 12px;color: inherit;font-weight: bold;border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-top: 5px;padding-bottom: 5px;display: block;position:relative;}
+.TopNavBar nav > ul > li.active > a::after {content:'';display: block;position:absolute;top:100%;left:0;width:100%;background:#e8676b;height:3px;animation:menuSlide 0.3s;}
+
+@keyframes menuSlide{ 0%{width:0;}100%{width:100%;}}
+
+.TopNavBar .submenu{display: none;position: absolute;right:0;top: 100%;background:white;color:#3d4451;box-shadow:0 0 10px rgba(0,0,0,0.25);}
+.TopNavBar li.active .submenu{display: block;animation:submenuSlide 0.3s;}
+@keyframes submenuSlide{0%{margin-right:100%;}100%{margin-right:0;}}
+
+.TopNavBar .submenu > li{white-space: nowrap;padding:5px 10px;}
+
 .TopNavBar .logo {font-size: 24px;font-family: "Arial Black";padding-top: 3px;padding-bottom: 4px;}
 .TopNavBar .logo .rs {margin-right: 4px;color: #e8676b;}
 .TopNavBar .logo .card {color: #9a9da2;}
-.banner {
-  height: 515px;
-  background-image: url(../img/rs-cover-2-2-1-1.jpg);
-  background-position: center center;
-  background-size: cover;
-}
+.banner {height: 515px;background-image: url(../img/rs-cover-2-2-1-1.jpg);background-position: center center;background-size: cover;}
 .banner .mask {height: 515px;background-color: rgba(0, 0, 0, 0.8);}
 .userCard {max-width: 940px;margin-left: auto;margin-right: auto;background-color: #ffffff;box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);}
 .userCard .picture {float: left;}
