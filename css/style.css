@@ -11,7 +11,7 @@ h1,h2,h3,h4,h5,h6 {font-weight: normal;}
 .TopNavBar-inner {padding: 0 16px;}
 .TopNavBar a {float: left;}
 .TopNavBar nav {float: right;padding-top: 4px;padding-bottom: 2px;}
-.TopNavBar nav > ul {list-style: none;margin: 0;padding: 0;}
+.TopNavBar nav > ul {list-style: none;margin: 0;padding: 0; cursor: pointer;}
 .TopNavBar nav > ul > li {float: left;margin-left: 17px;margin-right: 17px;position: relative;}
 .TopNavBar nav > ul > li > a {font-size: 12px;color: inherit;font-weight: bold;border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-top: 5px;padding-bottom: 5px;display: block;position:relative;}
 .TopNavBar nav > ul > li.active > a::after {content:'';display: block;position:absolute;top:100%;left:0;width:100%;background:#e8676b;height:3px;animation:menuSlide 0.3s;}
