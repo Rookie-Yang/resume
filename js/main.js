@@ -40,6 +40,21 @@ for(let i=0; i<aTags.length;i++){
     let href = a.getAttribute('href')//$siteAbout//获取用户在标签上写的原文，href是浏览器加过http协议
     let element = document.querySelector(href)///接受一个选择器，返回选择器1个元素
     let top = element.offsetTop//得到element距离页面顶部固定距离
-    window.scrollTo(0,top - 80)//x不变 Y滑动到top-80位置 
+
+    let n = 20 //一共移动多少次
+    let duration = 500/n //多少时间移动一次
+    let currentTop = window.scrollY
+    let targetTop = top -80
+    let distance = (targetTop - currentTop)/ n
+    let i=0
+    let id = setInterval(()=>{
+      if(i === n){
+        window.clearInterval(id)
+        return
+      }
+      i++
+      window.scrollTo(0,currentTop + distance * i)
+    },duration)
+   // window.scrollTo(0,top - 80)//x不变 Y滑动到top-80位置 
   }
 }
