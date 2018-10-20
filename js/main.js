@@ -1,3 +1,4 @@
+
 protflioAll.onclick = function(){
   protflioBar.className = 'bar state-1'
 }
@@ -38,9 +39,9 @@ for(let i=0; i<aTags.length;i++){
     x.preventDefault()//阻止默认动作
     let a = x.currentTarget//得到a标签
     let href = a.getAttribute('href')//$siteAbout//获取用户在标签上写的原文，href是浏览器加过http协议
-    let element = document.querySelector(href)///接受一个选择器，返回选择器1个元素
+    let element = document.querySelector(href)//接受一个选择器，返回选择器1个元素
     let top = element.offsetTop//得到element距离页面顶部固定距离
-
+/*//简单滑动
     let n = 20 //一共移动多少次
     let duration = 500/n //多少时间移动一次
     let currentTop = window.scrollY
@@ -56,5 +57,27 @@ for(let i=0; i<aTags.length;i++){
       window.scrollTo(0,currentTop + distance * i)
     },duration)
    // window.scrollTo(0,top - 80)//x不变 Y滑动到top-80位置 
+   */
+  //缓动
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
+    let currentTop = window.scrollY
+    let targetTop = top -80
+    let s =  targetTop - currentTop//路程
+    var t = Math.abs((s/100)*300)//时间
+    if (t>500){
+      t=500
+    }
+    var coords = { y: currentTop }; //起始位置
+    var tween = new TWEEN.Tween(coords) //起始位置
+      .to({  y: targetTop }, t) //结束位置 时间
+      .easing(TWEEN.Easing.Quadratic.InOut) //缓动类型
+      .onUpdate(function() {
+        window.scrollTo(0,coords.y)//如何更新界面
+      })
+      .start(); //开始缓动
   }
 }
