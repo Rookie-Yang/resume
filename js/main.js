@@ -13,13 +13,35 @@ setTimeout(function(){
   siteWelcome.classList.remove('active')
 },1000)//1s后执行代码
 
-window.onscroll = function(xxx){//用户滑动后触发
+window.onscroll = function(x){//用户滑动后触发
   if(window.scrollY>20){//获取用户滚动高度
     TopNavBar.classList.add('sticky')
   }
   else{
     TopNavBar.classList.remove('sticky')    
   }
+  let specialTags = document.querySelectorAll('[data-x]')
+  let minIndex = 0
+  for(let i = 0;i<specialTags.length;i++){
+    if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+      minIndex = i;
+    }
+  }
+  for(let i = 0;i<specialTags.length;i++){
+  specialTags[i].classList.remove('active')
+
+  }
+  specialTags[minIndex].classList.add('active')
+  let id = specialTags[minIndex].id
+  console.log(id)
+  let a = document.querySelector('a[href="#'+ id +'"]')
+  let li = a.parentNode
+  let brotherAdnMe = li.parentNode.children
+  for(let i =0; i<brotherAdnMe.length;i++){
+    brotherAdnMe[i].classList.remove('active')
+  }
+  li.classList.add('active')
+
 }
 
 let liTags = document.querySelectorAll('nav.menu > ul > li')//接受一个选择器，返回选择器对应所有元素
