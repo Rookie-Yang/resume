@@ -12,6 +12,15 @@ protflioVallina.onclick = function(){
 setTimeout(function(){
   siteWelcome.classList.remove('active')
 },1000)//1s后执行代码
+//添加offset类
+let specialTags = document.querySelectorAll('[data-x]')
+for(let i=0;i<specialTags.length;i++){
+  specialTags[i].classList.add('offset')
+}
+setTimeout(function(){
+  findClosest()
+
+},1000)
 
 window.onscroll = function(x){//用户滑动后触发
   if(window.scrollY>20){//获取用户滚动高度
@@ -20,6 +29,10 @@ window.onscroll = function(x){//用户滑动后触发
   else{
     TopNavBar.classList.remove('sticky')    
   }
+  findClosest()
+}
+
+function findClosest(){
   let specialTags = document.querySelectorAll('[data-x]')
   let minIndex = 0
   for(let i = 0;i<specialTags.length;i++){
@@ -27,21 +40,16 @@ window.onscroll = function(x){//用户滑动后触发
       minIndex = i;
     }
   }
-  for(let i = 0;i<specialTags.length;i++){
-  specialTags[i].classList.remove('active')
-
-  }
-  specialTags[minIndex].classList.add('active')
+  //minIndex 就是离窗口顶部最近的元素
+  specialTags[minIndex].classList.remove('offset')
   let id = specialTags[minIndex].id
-  console.log(id)
   let a = document.querySelector('a[href="#'+ id +'"]')
   let li = a.parentNode
   let brotherAdnMe = li.parentNode.children
   for(let i =0; i<brotherAdnMe.length;i++){
-    brotherAdnMe[i].classList.remove('active')
+    brotherAdnMe[i].classList.remove('highligth')
   }
-  li.classList.add('active')
-
+  li.classList.add('highligth')
 }
 
 let liTags = document.querySelectorAll('nav.menu > ul > li')//接受一个选择器，返回选择器对应所有元素

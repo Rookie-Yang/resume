@@ -9,6 +9,13 @@ h1,h2,h3,h4,h5,h6 {font-weight: normal;}
 [data-x].active{
   outline:10px solid red;
 }
+[data-x].offset{
+  transform: translateY(100px);
+}
+[data-x]{
+  transform: translateY(0);
+  transition: all 0.5s;
+}
 .TopNavBar {padding: 20px 0px;position: fixed;top: 0;left: 0;width: 100%;transition:all 0.5s;color:#ccced1;}
 .TopNavBar.sticky{background:white;padding:10px 0;z-index:1;box-shadow: 0 0 10px rgba(0,0,0,0.25);color:#3d4451;}
 .TopNavBar-inner {padding: 0 16px;}
@@ -17,7 +24,8 @@ h1,h2,h3,h4,h5,h6 {font-weight: normal;}
 .TopNavBar nav > ul {list-style: none;margin: 0;padding: 0; cursor: pointer;}
 .TopNavBar nav > ul > li {float: left;margin-left: 17px;margin-right: 17px;position: relative;}
 .TopNavBar nav > ul > li > a {font-size: 12px;color: inherit;font-weight: bold;border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-top: 5px;padding-bottom: 5px;display: block;position:relative;}
-.TopNavBar nav > ul > li.active > a::after {content:'';display: block;position:absolute;top:100%;left:0;width:100%;background:#e8676b;height:3px;animation:menuSlide 0.3s;}
+.TopNavBar nav > ul > li.active > a::after,
+.TopNavBar nav > ul > li.highligth > a::after {content:'';display: block;position:absolute;top:100%;left:0;width:100%;background:#e8676b;height:3px;animation:menuSlide 0.3s;}
 
 @keyframes menuSlide{ 0%{width:0;}100%{width:100%;}}
 
@@ -59,8 +67,11 @@ section.skills h3 {font-size: 14px;line-height: 1.1;padding-right: 40px;}
 section.skills > ol {background: white;box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);padding: 42px 50px 14px;margin-top: 30px;}
 section.skills > ol > li {float: left;width: 48%;box-sizing: border-box;}
 section.skills > ol > li:nth-child(even) {float: right;}
-section.skills .progressBar {height: 5px;background: #fae1e1;border-radius: 2px;margin: 4px 0 40px;}
-section.skills .progressBar > .progress {height: 100%;background: #e8676b;width: 70%;border-radius: 2px;}
+section.skills .progressBar {height: 5px;background: #fae1e1;border-radius: 2px;margin: 4px 0 40px; overflow: hidden;}
+section.skills .progressBar > .progress {height: 100%;background: #e8676b;width: 70%;border-radius: 2px;transform: translateX(0);transition: all 1s;}
+section.skills.offset .progress{
+  transform: translateX(-100%);
+}
 section.protflio {text-align: center;margin-bottom: 100px;}
 section.protflio > nav {text-align: center;display: inline-block;vertical-align: top;margin-top: 37px;}
 section.protflio > nav > ol {margin: 0 auto;display: inline-block;vertical-align: top;}
